@@ -1,0 +1,17 @@
+<html>
+<body>
+
+    <h1>Delete {{weapon.name}} </h1>
+
+    <form action="{{ url_for('deleteWeapon', job_req = job_req, id = id, weapon = weaponToDelete )}}" method="POST">
+
+        <input type="submit" value="Delete">
+
+    </form>
+
+    <div>
+        <a href="url_for('getWeaponFor', job_req = job_req)"> Cancel </a>
+    </div>
+
+</body>
+</html>

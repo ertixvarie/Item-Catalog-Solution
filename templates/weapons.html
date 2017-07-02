@@ -1,0 +1,37 @@
+<html>
+
+<body>
+
+
+<h1> {{job_req}} Weapons</h1>
+    {% if user_id != None %}
+        <div>
+            <a href = "{{ url_for('newWeapon', job_req = job_req, user_id = user_id) }}"> New </a>
+        </div>
+    {% endif %}
+{% for weapon in weapons %}
+
+<div>
+
+<p>{{weapon.name}}</p>
+
+<p> {{weapon.level}} </p>
+
+</div>
+<div>
+{% if user_id != None %}
+    {% if weapon.user_id == user_id %}
+        <div>
+            <a href = "{{ url_for('editWeapon', job_req = job_req, id = weapon.id) }}"> Edit </a>
+        </div>
+
+        <div>
+            <a href = "{{ url_for('deleteWeapon', job_req = job_req, id = weapon.id) }}"> Delete </a>
+        </div>
+    {% endif %}
+{% endif %}
+</div>
+{% endfor %}
+</body>
+
+</html>
